@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():    
-    return render_template('landing_page.html')
+    return render_template('landing_page.html',display=False)
 
 # Main route for prediction
 @app.route('/', methods=['POST'])
@@ -14,7 +14,7 @@ def predict():
     doc2 = request.form['text2'].lower()
     score = get_similarity(doc1,doc2)
 
-    return render_template('landing_page.html', score=score)  # Default upload web page to show before the POST request
+    return render_template('landing_page.html', score=score,display=True)  # Default upload web page to show before the POST request
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
