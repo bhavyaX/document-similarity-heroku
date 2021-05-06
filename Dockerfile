@@ -7,6 +7,8 @@ RUN mkdir /app
 WORKDIR /app
 #Copy all files
 ADD . /app
+
+EXPOSE 5000 5000
 #Install dependencies
 RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
